@@ -23,39 +23,35 @@ function buttonHandler() {
  });
 }
 
-// Radio control for selecting presets or color choice
+// Radio control for time display
 var $hardValue;
-
-$("input[name=hardRadio]").change(function () {
+$("input[name=hard]").change(function () {
  $hardValue = parseInt(this.value);
 });
-
 
 function loadOptions() {
  if (localStorage.hard) {
   $hardValue = localStorage.hard;
   console.log('localStorage.hard: ' + $hardValue);
-  // setting radio' value
-  $("input[name=presetRadio][value='" + $hardValue + "']").attr('checked', 'checked');
  } else {
   $hardValue = 0;
   console.log('localStorage.hard was undefined, now set to: ' + $hardValue);
-  $("input[name=hardRadio][value='" + $hardValue + "']").attr('checked', 'checked');
  }
+ $("input[name=hard][value='" + $hardValue + "']").attr('checked', 'checked');
 } 
- 
- 
+
 function getAndStoreConfigData() {
-console.log('hardValue value: ' + $hardValue);
+ console.log('hard value: ' + $hardValue);
 
  var options = {
-  hard: $hardValue
+  hard:   $hardValue
  };
-
- localStorage.hard = $hardValue;
  
  console.log('Got options: ' + JSON.stringify(options));
-// return options;
+
+ localStorage.hard = $hardValue;
+
+ return options;
 }
 
 function getQueryParam(variable, defaultValue) {
