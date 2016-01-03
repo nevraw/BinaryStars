@@ -39,16 +39,16 @@ function loadOptions() {
  
  
 function getAndStoreConfigData() {
-console.log('hardRadio value: ' + $hardValue);
+console.log('hardValue value: ' + $hardValue);
 
  var options = {
   hard: $hardValue
  };
 
- localStorage.hard = options.hard;
+ localStorage.hard = $hardValue;
  
  console.log('Got options: ' + JSON.stringify(options));
- return options;
+// return options;
 }
 
 function getQueryParam(variable, defaultValue) {
