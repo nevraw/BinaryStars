@@ -25,24 +25,26 @@ function buttonHandler() {
 
 
 function loadOptions() {
- var $hardCheckbox = $('#hardCheckbox');
-
-console.log('localStorage.hard ' + localStorage.hard);
  if (localStorage.hard) {
-  $hardCheckbox[0].checked = localStorage.hard === 'true';
+  $hardValue = localStorage.hard;
+  console.log('localStorage.hard: ' + $hardValue);
+  // setting radio' value
+  $("input[name=presetRadio][value='" + $hardValue + "']").attr('checked', 'checked');
+ } else {
+  $hardValue = 0;
+  console.log('localStorage.hard was undefined, now set to: ' + $hardValue);
+  $("input[name=hardRadio][value='" + $hardValue + "']").attr('checked', 'checked');
  }
 } 
  
  
 function getAndStoreConfigData() {
- var $hardCheckbox = $('#hardCheckbox');
-
-console.log('$hardCheckbox[0].checked ' + $hardCheckbox[0].checked);
+console.log('hardRadio value: ' + $hardValue);
 
  var options = {
-  hard: $hardCheckbox[0].checked
+  hard: $hardValue;
  };
- 
+
  localStorage.hard = options.hard;
  
  console.log('Got options: ' + JSON.stringify(options));
