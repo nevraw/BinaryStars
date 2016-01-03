@@ -27,15 +27,17 @@ function buttonHandler() {
 function loadOptions() {
  var $hardCheckbox = $('#hardCheckbox');
 
+console.log('localStorage.hard' + localStorage.hard);
  if (localStorage.hard) {
   $hardCheckbox[0].checked = localStorage.hard === 'true';
  }
 } 
  
  
- 
 function getAndStoreConfigData() {
  var $hardCheckbox = $('#hardCheckbox');
+
+console.log('$hardCheckbox[0].checked' + $hardCheckbox[0].checked);
 
  var options = {
   hard: $hardCheckbox[0].checked
