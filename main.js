@@ -23,6 +23,13 @@ function buttonHandler() {
  });
 }
 
+// Radio control for selecting presets or color choice
+var $hardValue;
+
+$("input[name=hardRadio]").change(function () {
+ $hardValue = parseInt(this.value);
+});
+
 
 function loadOptions() {
  if (localStorage.hard) {
