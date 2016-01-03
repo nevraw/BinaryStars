@@ -42,7 +42,7 @@ function getAndStoreConfigData() {
 console.log('hardRadio value: ' + $hardValue);
 
  var options = {
-  hard: $hardValue;
+  hard: $hardValue
  };
 
  localStorage.hard = options.hard;
